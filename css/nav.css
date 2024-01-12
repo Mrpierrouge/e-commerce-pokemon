@@ -1,0 +1,33 @@
+.navbar{
+    background-color: #333;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 5fr;
+    justify-content: center;
+    align-items: center;
+
+    img{
+        width: 15vw;
+        max-width: 175px;
+        min-width: 75px;
+        padding-left: 10px;
+    }
+    
+}
+ul{
+    grid-column: 3/-1;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3vw;
+    
+}
+
+ul > li > a{
+    text-decoration: none;
+    color: white;
+}

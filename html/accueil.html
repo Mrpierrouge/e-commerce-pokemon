@@ -8,38 +8,45 @@
   </head>
   <body>
     <nav class="navbar">
+      <img src="../img/pokeballpng.png" alt="Pokéball"/>
       <ul>
-        <li>générations :</li>
         <li>
-          <a href="#1gen">1ere</a>
+          <a href="#recherche">1ere génération</a>
         </li>
         <li>
-          <a href="#2gen">2eme</a>
+          <a href="#1gen">2eme génération</a>
         </li>
         <li>
-          <a href="#3gen">3eme</a>
+          <a href="#2gen">3eme génération</a>
         </li>
         <li>
-          <a href="#4gen">4eme</a>
+          <a href="#3gen">4eme génération</a>
         </li>
         <li>
-          <a href="#5gen">5eme</a>
+          <a href="#4gen">5eme génération</a>
         </li>
         <li>
-          <a href="#6gen">6eme</a>
+          <a href="#5gen">6eme génération</a>
         </li>
         <li>
-          <a href="#7gen">7eme</a>
+          <a href="#6gen">7eme génération</a>
         </li>
         <li>
-          <a href="#8gen">8eme</a>
+          <a href="#7gen">8eme génération</a>
         </li>
         <li>
-          <a href="#9gen">9eme</a>
+          <a href="#8gen">9eme génération</a>
         </li>
       </ul>
     </nav>
     <div class="Container">
+      <h2>Chercher un pokémon</h2>
+      <div id="recherche">
+        <label for="recherche"></label>
+        <input type="text" id="search"/>
+      </div>
+      <h2>Ou parcourir par génération</h2>
+
       <h2>1ere génération</h2>
       <div class="generation" id="1gen"></div>
       <h2>2eme génération</h2>
@@ -61,5 +68,6 @@
     </div>
 
     <script src="../js/gpt.js"></script>
+    <script src="../js/recherche.js"></script>
   </body>
 </html>

@@ -50,6 +50,6 @@ function displayPokemonList(pokemonList, gen) {
 }
 
 // on lance le code pour chacune des 8 génération
-for (let i = 0; i < 8; i++) {
+for (let i = 1; i < 10; i++) {
   getPokemonByGeneration(i);
 }
