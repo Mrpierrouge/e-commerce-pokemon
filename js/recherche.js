@@ -9,6 +9,11 @@ document.getElementById("search").addEventListener("change", () => {
         div.innerHTML = `<h3>${data.name}</h3>
         <img src="${data.sprites.front_default}">`;
         div.classList.add("pokemon-card")
+        div.addEventListener("click", () => {
+            localStorage.setItem("SelectedProduct",`${data.name}`);
+            localStorage.setItem("IsLegendary",document.querySelector(`#${data.name}>.IsLegendary`).value)
+            window.location.href="../html/produit.html";
+        })
     })
     .catch((error) => {
 

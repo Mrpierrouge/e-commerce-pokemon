@@ -20,6 +20,7 @@ function displayPokemonList(pokemonList, gen) {
     // Créer la carte du Pokémon
     const pokemonCard = document.createElement("div");
     pokemonCard.classList.add("pokemon-card");
+    pokemonCard.id = pokemon.name;
 
     // Ajouter le nom du Pokémon à la carte
     const nameHeading = document.createElement("h3");
@@ -34,11 +35,21 @@ function displayPokemonList(pokemonList, gen) {
         const pokemonImageURL = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data.id}.png`;
 
         // Ajouter l'image du Pokémon à la carte
-        const imageElement = document.createElement("img");
-        imageElement.src = pokemonImageURL;
-        imageElement.alt = pokemonName;
-        imageElement.classList.add("pokemon-image");
-        pokemonCard.appendChild(imageElement);
+        const image = document.createElement("img");
+        image.src = pokemonImageURL;
+        image.alt = pokemonName;
+        image.classList.add("pokemon-image");
+        Islegendary = document.createElement("input");
+        Islegendary.setAttribute("type", "hidden");
+        Islegendary.classList.add("IsLegendary");
+
+        if (data.is_legendary) {
+          Islegendary.value = true;
+        }else{
+          Islegendary.value = data.is_mythical;
+        }
+        pokemonCard.appendChild(image);
+        pokemonCard.appendChild(Islegendary);
       })
       .catch((error) =>
         console.error("Error fetching Pokémon details:", error)
@@ -53,3 +64,18 @@ function displayPokemonList(pokemonList, gen) {
 for (let i = 1; i < 10; i++) {
   getPokemonByGeneration(i);
 }
+
+let Intervalle = setInterval(() => {
+  const AllCards = document.querySelectorAll(".pokemon-card");
+  AllCards.forEach((Card) => {
+    Card.addEventListener("click", () => {
+      localStorage.setItem("SelectedProduct", Card.id);
+      localStorage.setItem("IsLegendary",document.querySelector(`#${Card.id}>.IsLegendary`).value)
+      window.location.href="../html/produit.html";
+    });
+  });
+  if (document.querySelectorAll(".pokemon-card").length > 1024) {
+    console.log("stop");
+    clearInterval(Intervalle);
+  }
+}, 1 * 1000);
