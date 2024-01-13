@@ -28,9 +28,7 @@ body {
   border: 1px solid #ddd;
   margin: 2%;
   padding: 10px;
-  width: 30%;
-  max-width: 200px;
-  min-width: 96px;
+  width: 200px;
   height: 35%;
   text-align: center;
   cursor: pointer;

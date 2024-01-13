@@ -1,5 +1,12 @@
 const Produit = localStorage.getItem("SelectedProduct");
 const IsLegendary = localStorage.getItem("IsLegendary");
+function RecupPanier() {
+  if (localStorage.getItem("Panier") == null) {
+    return []
+  } else {
+    return JSON.parse(localStorage.Panier);
+  }
+}
 fetch(`https://pokeapi.co/api/v2/pokemon/${Produit}/`)
   .then((response) => response.json())
   .then((data) => {
@@ -25,13 +32,33 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${Produit}/`)
     });
 
     const DivPrix = document.createElement("button");
-    let Prix = (TotalStats * 100) / data.stats.length;
-
-    if (IsLegendary) {
+    let Prix = ((TotalStats * 10) / data.stats.length).toFixed();
+    if (IsLegendary == "true") {
       Prix = Prix * 1000;
     }
     DivPrix.textContent = `${Prix}$`;
 
     document.getElementById("chiffres").appendChild(DivStats);
     document.getElementById("chiffres").appendChild(DivPrix);
+
+    DivPrix.addEventListener("click", () => {
+      let Panier = RecupPanier();
+      Panier.push({
+              name: data.name,
+              img: data.sprites.front_default,
+              prix: Prix,
+            });
+      console.log(Panier)
+      localStorage.Panier = JSON.stringify(Panier)
+    });
   });
+// localStorage.setItem(
+//   "Panier",
+//   JSON.stringify(
+//     JSON.parse(localStorage.getItem("Panier")).push({
+//       name: data.name,
+//       img: data.sprites.front_default,
+//       prix: Prix,
+//     })
+//   )
+// );
