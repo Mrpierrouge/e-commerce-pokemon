@@ -13,9 +13,12 @@ Panier.forEach(pokemon => {
     let SuppCard = document.createElement("button")
     SuppCard.textContent = "Supprimer"
     SuppCard.addEventListener("click", () =>{
-        let NewPanier = Panier.filter((poke) => poke.name !== pokemon.name)
-        Card.remove()
-        localStorage.Panier = JSON.stringify(NewPanier)
+        const indexOfPokemon = Panier.findIndex((poke) => poke.name === pokemon.name);
+        if (indexOfPokemon !== -1) {
+            Panier.splice(indexOfPokemon, 1);
+            Card.remove();
+            localStorage.Panier = JSON.stringify(Panier);
+        }
     })
     Card.appendChild(SuppCard)
     document.getElementById("pokemon-list").appendChild(Card)
