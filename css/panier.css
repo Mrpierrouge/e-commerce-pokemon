@@ -1,0 +1,23 @@
+.PanierContainer{
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr 2fr 1fr;
+}
+#pokemon-list{
+    display: flex;
+    flex-direction: column;
+    grid-column: 2/3;
+    gap: 30px;
+    align-items: flex-start;
+}
+.pokemon{
+    border: 2px solid black;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+.total{
+    grid-column: 4/5;
+
+}
