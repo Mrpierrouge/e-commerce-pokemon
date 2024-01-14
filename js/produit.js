@@ -55,6 +55,7 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${Produit}/`)
         name: data.name,
         img: data.sprites.front_default,
         prix: Prix,
+        IsLegendary: IsLegendary
       });
       localStorage.Panier = JSON.stringify(Panier);
       // Changement d'animation entre 

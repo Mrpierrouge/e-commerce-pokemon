@@ -23,9 +23,9 @@ function displayPokemonList(pokemonList, gen) {
     pokemonCard.id = pokemon.name;
 
     // Ajouter le nom du Pokémon à la carte
-    const nameHeading = document.createElement("h3");
-    nameHeading.textContent = pokemonName;
-    pokemonCard.appendChild(nameHeading);
+    const pokemonH = document.createElement("h3");
+    pokemonH.textContent = pokemonName;
+    pokemonCard.appendChild(pokemonH);
 
     // Récupérer les détails du Pokémon pour obtenir l'image
     fetch(pokemonDetailURL)

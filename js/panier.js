@@ -12,10 +12,18 @@ Panier.forEach(pokemon => {
     let Card = document.createElement("div")
     Card.classList.add("pokemon")
     Card.innerHTML = `<h3>${pokemon.name}</h3><img src="${pokemon.img}" class="img-pokemon"><p class="prix">${pokemon.prix} $ </p>`
-    let SuppCard = document.createElement("button")
+
+    const SuppCard = document.createElement("button")
     SuppCard.classList.add("anim-pulse")
     SuppCard.textContent = "Supprimer"
-    SuppCard.addEventListener("click", () =>{
+
+    Card.addEventListener("click", () => {
+        localStorage.setItem("SelectedProduct", pokemon.name);
+        localStorage.setItem("IsLegendary",pokemon.Islegendary)
+        window.location.href="../html/produit.html";
+    })
+    SuppCard.addEventListener("click", (event) =>{
+        event.stopPropagation(); 
         const indexOfPokemon = Panier.findIndex((poke) => poke.name === pokemon.name);
         if (indexOfPokemon !== -1) {
             Panier.splice(indexOfPokemon, 1);

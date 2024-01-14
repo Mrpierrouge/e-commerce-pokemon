@@ -1,59 +1,64 @@
-.PanierContainer{
-    display: grid;
-    grid-template-columns: 1fr 4fr 1fr 2fr 1fr;
+.PanierContainer {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr 2fr 1fr;
 }
-#pokemon-list{
-    display: flex;
-    flex-direction: column;
-    grid-column: 2/3;
-    gap: 30px;
-    align-items: flex-start;
+#pokemon-list {
+  display: flex;
+  flex-direction: column;
+  grid-column: 2/3;
+  gap: 30px;
+  align-items: flex-start;
 }
-.pokemon{
-    border: 2px solid black;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+.pokemon {
+  border: 2px solid black;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
 }
-.total{
-    grid-column: 4/5;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
+.pokemon:hover {
+  background-color: #eee;
 }
-#Acheter{
-    width: 60%;
-    margin-top: 60px;
-    font-size: 18px;
+.pokemon:active {
+  background-color: #ddd;
+}
+.total {
+  grid-column: 4/5;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+#Acheter {
+  width: 60%;
+  margin-top: 60px;
+  font-size: 18px;
 }
 @media screen and (max-width: 800px) {
-    .pokemon{
-        flex-direction: column;
-        gap: 10px;
-        padding: 15px;
-    }
+  .pokemon {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
   }
-  @media screen and (max-width: 650px) {
-    .PanierContainer{
-        grid-template-columns: 1fr 4fr 1fr 4fr 1fr;
-    }
-    
+}
+@media screen and (max-width: 650px) {
+  .PanierContainer {
+    grid-template-columns: 1fr 4fr 1fr 4fr 1fr;
   }
-  @media screen and (max-width: 425px) {
-    .PanierContainer{
-        grid-template-columns: 1fr 10fr 1fr;
-        grid-template-rows: 200px 200px;
-    }
-    .total{
-        grid-column: 2/3;
-        grid-row: 1/2;
-    }
-    #pokemon-list{
-        flex-direction: row;
-        flex-wrap: wrap;
-        grid-row: -2/-1;
-    }
-    
+}
+@media screen and (max-width: 425px) {
+  .PanierContainer {
+    grid-template-columns: 1fr 10fr 1fr;
+    grid-template-rows: 200px 200px;
   }
+  .total {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+  #pokemon-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    grid-row: -2/-1;
+  }
+}
