@@ -1,6 +1,7 @@
 @import url("nav.css");
 @import url("produit.css");
 @import url("panier.css");
+@import url("anim.css");
 * {
   padding: 0;
   margin: 0;
@@ -20,7 +21,6 @@ body {
   height: 450px;
   border: 2px solid black;
   width: 85vw;
-  
 }
 
 .pokemon-card {
@@ -52,16 +52,31 @@ body {
   align-items: center;
   gap: 50px;
 }
-#recherche{
-    width: 60vw;
-    justify-content:center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
+#recherche {
+  width: 60vw;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 @media screen and (max-width: 550px) {
-    h3{
-        font-size: 0.85em;
-    }
+  h3 {
+    font-size: 0.85em;
+  }
+}
+
+button {
+  background-color: #777;
+  color: white;
+  border-radius: 15px;
+  padding: 10px;
+  border: 2px solid black;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #666;
+}
+button:active{
+  background-color: #555;
 }

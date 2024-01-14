@@ -35,34 +35,33 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${Produit}/`)
       DivStats.appendChild(Li);
     });
 
-    const DivPrix = document.createElement("button");
     let Prix = ((TotalStats * 10) / data.stats.length).toFixed();
     if (IsLegendary == "true") {
       Prix = Prix * 1000;
     }
-    DivPrix.textContent = `${Prix}$`;
+
+    const DivPrix = document.createElement("div");
+    DivPrix.id = "Prix";
+    DivPrix.textContent = `${Prix} $`;
 
     document.getElementById("chiffres").appendChild(DivStats);
     document.getElementById("chiffres").appendChild(DivPrix);
-
-    DivPrix.addEventListener("click", () => {
+// Au clic sur le bouton d'ajout au panier, je met a jour le panier dans le local storage
+    const BoutonAdd = document.getElementById("Ajouter")
+    BoutonAdd.addEventListener("click", () => {
+      //maj du panier
       let Panier = RecupPanier();
       Panier.push({
         name: data.name,
         img: data.sprites.front_default,
         prix: Prix,
       });
-      console.log(Panier);
       localStorage.Panier = JSON.stringify(Panier);
+      //
+      BoutonAdd.classList.remove('anim-pulse');
+      void BoutonAdd.offsetWidth;
+      BoutonAdd.classList.add('anim-pulse');
+      void BoutonAdd.offsetWidth;
     });
   });
-// localStorage.setItem(
-//   "Panier",
-//   JSON.stringify(
-//     JSON.parse(localStorage.getItem("Panier")).push({
-//       name: data.name,
-//       img: data.sprites.front_default,
-//       prix: Prix,
-//     })
-//   )
-// );
+

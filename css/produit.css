@@ -1,60 +1,87 @@
-#product-card{
-    background-color: #eee;
-    width: 80vw;
+#product-card {
+  background-color: #eee;
+  width: 80vw;
+  display: flex;
+  justify-content: center;
+  margin-left: 10vw;
+  margin-top: 30px;
+  flex-direction: column;
+  border: 2px solid black;
+}
+#visuel {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid black;
+}
+#sprite {
+  padding-top: 25px;
+  width: 100%;
+  img {
+    width: 200px;
+    height: 200px;
+  }
+}
+#zone-type {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  div {
     display: flex;
-    justify-content: center;
-    margin-left: 10vw;
-    margin-top: 30px;
     flex-direction: column;
-    border: 2px solid black;
-}
-#visuel{
-    width: 100%;
-    display: flex;
     justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    border: 2px solid black;
-
+  }
+  img {
+    width: 96px;
+    height: 96px;
+  }
 }
-#sprite{
-    padding-top: 25px;
-    width: 100%;
-    img{
-        width: 200px;
-        height: 200px;
-    }
-
-}
-#zone-type{
+#chiffres {
+  border: 2px solid black;
+  display: grid;
+  grid-template-columns: 6fr 4fr;
+  grid-template-rows: 2fr 2fr 1fr 1fr 3fr;
+  ul {
+    grid-column: 1/2;
+    grid-row: 1/-1;
+    gap: 25px;
     display: flex;
-    justify-content: space-around;
-    width: 80%;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    div{
-        display:flex;
-        flex-direction: column;
-        justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-inline: 10vw;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    align-self: center;
+    li {
+      text-align: start;
     }
-    img{
-        width: 96px;
-        height: 96px;
-    }
+  }
 }
-#chiffres{
-    border: 2px solid black;
-    ul{
-        gap: 25px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding-inline: 10vw;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        width: 50%;
-        li{
-            text-align: start;
-        }
-    }
+#Ajouter {
+  font-size: 18px;
+  grid-row: 2/3;
+  grid-column: 2/3;
+  width: 50%;
+  justify-self: center;
 }
+.anim-scale {
+  animation: pulse-scale 2s infinite;
+}
+.anim-pulse {
+  animation: pulse 1s;
+}
+#Prix {
+  grid-row: 4/5;
+  font-size: 18px;
+  align-self: center;
+}
+@media screen and (max-width: 1000px) {
+  #Ajouter {
+    font-size: 15px;
+  }
+}
+
