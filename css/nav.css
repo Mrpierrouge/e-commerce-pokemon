@@ -9,7 +9,11 @@
     grid-template-columns: 1fr 1fr 5fr;
     justify-content: center;
     align-items: center;
-
+    ul{
+        justify-self: center;
+        justify-content: space-around;
+        width: 100%;
+    }
     img{
         width: 15vw;
         max-width: 175px;
@@ -24,10 +28,16 @@ ul{
     display: flex;
     flex-wrap: wrap;
     gap: 3vw;
-    
 }
 
 ul > li > a{
     text-decoration: none;
     color: white;
+}
+.LienImportant{
+    background-color: white;
+    color: rgb(230, 3, 00);
+    font-style: bold;
+    border-radius: 8px;
+    padding: 5px;
 }

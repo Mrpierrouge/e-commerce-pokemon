@@ -15,9 +15,23 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    
 }
 .total{
     grid-column: 4/5;
-
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
 }
+#Acheter{
+    width: 60%;
+    margin-top: 60px;
+    font-size: 18px;
+}
+@media screen and (max-width: 800px) {
+    .pokemon{
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+    }
+  }

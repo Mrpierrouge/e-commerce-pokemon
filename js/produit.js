@@ -46,8 +46,8 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${Produit}/`)
 
     document.getElementById("chiffres").appendChild(DivStats);
     document.getElementById("chiffres").appendChild(DivPrix);
-// Au clic sur le bouton d'ajout au panier, je met a jour le panier dans le local storage
-    const BoutonAdd = document.getElementById("Ajouter")
+    // Au clic sur le bouton d'ajout au panier, je met a jour le panier dans le local storage
+    const BoutonAdd = document.getElementById("Ajouter");
     BoutonAdd.addEventListener("click", () => {
       //maj du panier
       let Panier = RecupPanier();
@@ -57,11 +57,15 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${Produit}/`)
         prix: Prix,
       });
       localStorage.Panier = JSON.stringify(Panier);
-      //
-      BoutonAdd.classList.remove('anim-pulse');
+      // Changement d'animation entre 
+      BoutonAdd.classList.remove("anim-scale");
       void BoutonAdd.offsetWidth;
-      BoutonAdd.classList.add('anim-pulse');
-      void BoutonAdd.offsetWidth;
+      BoutonAdd.classList.add("anim-pulse");
+      setTimeout(() => {
+        BoutonAdd.classList.remove("anim-pulse");
+        void BoutonAdd.offsetWidth;
+        BoutonAdd.classList.add("anim-scale");
+
+      }, 3 * 1000);
     });
   });
-

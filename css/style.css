@@ -67,7 +67,7 @@ body {
 }
 
 button {
-  background-color: #777;
+  background-color: #fe1b00;
   color: white;
   border-radius: 15px;
   padding: 10px;
@@ -75,8 +75,8 @@ button {
   cursor: pointer;
 }
 button:hover {
-  background-color: #666;
+  background-color: rgb(244, 17, 00);
 }
 button:active{
-  background-color: #555;
+  background-color: rgb(230, 3, 00);
 }

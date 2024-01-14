@@ -10,15 +10,16 @@
     }
   }
   @keyframes pulse {
-    0% {
-      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5);
-    }
-  
-    50% {
-      box-shadow: 0 0 0 50px rgba(0, 0, 0, 0.5);
-    }
-    100%{
-      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5);
-    }
+	0% {
+        box-shadow: 0 0 0 0 rgb(230, 3, 00);
+       }
+      
+       70% {
+        box-shadow: 0 0 0 20px rgb(218 103 68 / 0%);
+       }
+      
+       100% {
+        box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+       }
   }
   
