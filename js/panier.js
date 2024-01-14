@@ -53,3 +53,16 @@ Panier.forEach((pokemon) => {
   document.getElementById("pokemon-list").appendChild(Card);
   document.getElementById("prix-total").textContent = PrixTotal + " $";
 });
+
+// Animation du bouton acheter 
+const Bouton = document.getElementById("Acheter");
+Bouton.addEventListener("click", () => {
+  Bouton.classList.remove("anim-scale");
+  void Bouton.offsetWidth;
+  Bouton.classList.add("anim-pulse");
+  setTimeout(() => {
+    Bouton.classList.remove("anim-pulse");
+    void Bouton.offsetWidth;
+    Bouton.classList.add("anim-scale");
+  }, 3 * 1000);
+});
