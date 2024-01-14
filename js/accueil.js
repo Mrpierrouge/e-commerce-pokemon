@@ -7,47 +7,48 @@ function getPokemonByGeneration(generation) {
 
 // Fonction pour afficher une liste de pokemon dans une div
 function displayPokemonList(pokemonList, gen) {
+  // cette ligne tris les pokemon par numéros de pokedex
   pokemonList.sort(
     (a, b) => a.url.split("/").slice(-2, -1) - b.url.split("/").slice(-2, -1)
   );
 
-  const pokemonListContainer = document.getElementById(`${gen}gen`);
-
+  //pour chaque pokemon dans la lsite de pokemon de la génération
   pokemonList.forEach((pokemon) => {
-    const pokemonName = pokemon.name;
-    const pokemonDetailURL = pokemon.url;
-
-    // Créer la carte du Pokémon
+    // Je Créer la carte du Pokémon
     const pokemonCard = document.createElement("div");
     pokemonCard.classList.add("pokemon-card");
     pokemonCard.id = pokemon.name;
 
-    // Ajouter le nom du Pokémon à la carte
+    // J' y Ajoute son nom
     const pokemonH = document.createElement("h3");
-    pokemonH.textContent = pokemonName;
+    pokemonH.textContent = pokemon.name;
     pokemonCard.appendChild(pokemonH);
 
-    // Récupérer les détails du Pokémon pour obtenir l'image
-    fetch(pokemonDetailURL)
+    // Je récupére les détails du Pokémon pour obtenir l'image
+    fetch(pokemon.url)
       .then((response) => response.json())
       .then((data) => {
         //l'URL de l'image du Pokémon
         const pokemonImageURL = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data.id}.png`;
 
-        // Ajouter l'image du Pokémon à la carte
+        // Je créer l'image du Pokémon
         const image = document.createElement("img");
         image.src = pokemonImageURL;
-        image.alt = pokemonName;
+        image.alt = pokemon.name;
         image.classList.add("pokemon-image");
+        
+        //Je récupère l'information de si le pokemon est un pokemon légendaire
         Islegendary = document.createElement("input");
         Islegendary.setAttribute("type", "hidden");
         Islegendary.classList.add("IsLegendary");
-
+        //L'information de si le pokemon légendaire est stocké de 2 manière différentes dans l'api : is_legendary et is_mythical
         if (data.is_legendary) {
           Islegendary.value = true;
-        }else{
+        } else {
           Islegendary.value = data.is_mythical;
         }
+
+        //J'ajoute les élements a la carte du pokemon
         pokemonCard.appendChild(image);
         pokemonCard.appendChild(Islegendary);
       })
@@ -55,7 +56,8 @@ function displayPokemonList(pokemonList, gen) {
         console.error("Error fetching Pokémon details:", error)
       );
 
-    // Ajouter la carte du Pokémon à la liste
+    //J'joute la carte du Pokémon à la liste de sa génération
+    const pokemonListContainer = document.getElementById(`${gen}gen`);
     pokemonListContainer.appendChild(pokemonCard);
   });
 }
@@ -65,17 +67,22 @@ for (let i = 1; i < 10; i++) {
   getPokemonByGeneration(i);
 }
 
+// Les events listener pour chacunes des cartes, pour rediriger vers une page produit du pokemon.
+//L'intervalle est présente pour mettre a jour le nombre de carte au fur et a mesure qu'elles se chargent
 let Intervalle = setInterval(() => {
   const AllCards = document.querySelectorAll(".pokemon-card");
   AllCards.forEach((Card) => {
     Card.addEventListener("click", () => {
+      //Je stock les information de quel pokemon est sélectionner puis redirige vers la page produit
       localStorage.setItem("SelectedProduct", Card.id);
-      localStorage.setItem("IsLegendary",document.querySelector(`#${Card.id}>.IsLegendary`).value)
-      window.location.href="../html/produit.html";
+      localStorage.setItem(
+        "IsLegendary",
+        document.querySelector(`#${Card.id}>.IsLegendary`).value
+      );
+      window.location.href = "../html/produit.html";
     });
   });
   if (document.querySelectorAll(".pokemon-card").length > 1024) {
-    console.log("stop");
     clearInterval(Intervalle);
   }
 }, 1 * 1000);
