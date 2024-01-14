@@ -65,8 +65,10 @@
   font-size: 18px;
   grid-row: 2/3;
   grid-column: 2/3;
-  width: 50%;
+  width: auto;
   justify-self: center;
+  height: auto;
+  margin: 20px;
 }
 .anim-scale {
   animation: pulse-scale 2s infinite;
@@ -84,4 +86,25 @@
     font-size: 15px;
   }
 }
+@media screen and (max-width: 450px) {
+    #chiffres{
+        grid-template-columns: 1fr 7fr 1fr;
+        grid-template-rows: 300px 100px auto;
+        ul{
+            grid-column: 2/3;
+            grid-row: 1/2;
+        }
+    }
+    #Prix{
+        grid-row: -3/-2;
+        grid-column: 2/3;
+    }
+    #Ajouter{
+        grid-row: -2/-1;
+        height: 50px;
+        align-self: center;
+        text-align: center;
+    }
+
+  }
 
